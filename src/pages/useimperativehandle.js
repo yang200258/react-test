@@ -1,4 +1,4 @@
-import React, { useCallback, useImperativeHandle, useState, useRef, useEffect } from 'react';
+import React, { useCallback, useImperativeHandle, useState, useRef } from 'react';
 // forwardRef： 将父类的ref作为参数传入函数式组件中
 // **useImperativeHandle:**在函数式组件中，用于定义暴露给父组件的ref方法，用来限制子组件对外暴露的信息，只有useImperativeHandle第二个参数定义的属性跟方法才可以在父组件获取到
 const ChildInput = React.forwardRef((props, ref) => {
@@ -32,17 +32,4 @@ const Parent = () => {
   )
 }
 
-function Counter() {
-  const [count, setCount] = useState(0);
-  console.log(count)
-  useEffect(() => {
-    const id = setInterval(() => {
-      setCount(count + 1);
-    }, 1000);
-    return () => clearInterval(id);
-  }, []);
-
-  return <h1>{count}</h1>;
-}
-
-export default Counter;
+export default Parent;
